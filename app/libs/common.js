@@ -1,13 +1,29 @@
 $(document).ready(function() {
 
-$(".toggle-mnu").click(function() {
-$(this).toggleClass("on");
-$(".top-menu").slideToggle();
-return false;
-});
-$('body, .top-menu ul li a').click(function () {
-$('.hidden-mnu').hide("slow");
-});
+	$('#toggle').click(function () {
+		$(this).toggleClass('active');
+		$('#overlay').toggleClass('open');
+		$('body').toggleClass('stop');
+		return false;
+	});
+
+	$('body, .overlay-menu ul li a').click(function () {
+		$('#overlay').removeClass('open');
+		$('#toggle').removeClass('active');
+		$('body').removeClass('stop');
+	});
+
+
+
+
+
+
+
+
+
+
+
+
 
 //button up
 $("body").append('<div class="button-top"><i class="fa fa-angle-double-up" aria-hidden="true"></i></div>');
@@ -24,14 +40,15 @@ if ($(this).scrollTop() > $(this).height()) {
 }
 });
 
-$(".top-menu ul li a, .block-letme-batton a, .calling-me ul li a").mPageScroll2id({
+$(".top-menu ul li a, .overlay-menu ul li a, .block-letme-batton a, .calling-me ul li a").mPageScroll2id({
 	 layout:"auto",
 	 offset:".top-line",
 	scrollEasing: "linear",
 	highlightByNextTarget: true,
 	keepHighlightUntilNext: true,
 	 autoScrollSpeed: true,
-	scrollSpeed : 1000
+	scrollSpeed : 1000,
+	highlightSelector: ".top-menu ul li a"
 });
 
 // form in popup
@@ -39,6 +56,11 @@ $("a[href='#call-back']").magnificPopup ({
 	mainClass:'my-mfp-zoom-in',
 	removalDelay:400,
 	type:'inline',
+		fixedContentPos : false,
+	fixedBgPos      : false,
+		tLoading: 'Загрузка...',
+	tClose: 'Закрыть (Esc)',
+
 });
 /* popup form optionдуальный заголовок */
 $("a[href='#call-back']").click(function(){
