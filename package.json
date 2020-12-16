@@ -47,7 +47,7 @@
     "gulp-strip-comments": "^2.5.2",
     "gulp-strip-css-comments": "^2.0.0",
     "gulp-uglify-es": "^2.0.0",
-    "jquery": "^2.2.4",
+    "jquery": "^3.5.0",
     "magnific-popup": "^1.1.0",
     "page-scroll-to-id": "^1.6.5",
     "prettier": "^2.2.1",
