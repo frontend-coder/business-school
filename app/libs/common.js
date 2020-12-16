@@ -1,93 +1,162 @@
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', () => {
+  // common js
+  $('#tel').mask('+7(000)000-00-00', {
+    selectOnFocus: true,
+    placeholder: '+7(___)___-__-__',
+    clearIfNotMatch: !0,
+  });
 
-	$('#toggle').click(function () {
-		$(this).toggleClass('active');
-		$('#overlay').toggleClass('open');
-		$('body').toggleClass('stop');
-		return false;
-	});
+  // <a href="#call-back" data-form="с кнопки в фиксированном топ лайне" data-text="Получить доступ к урокам">
+  //   получить доступ data-yandex
+  // </a>;
 
-	$('body, .overlay-menu ul li a').click(function () {
-		$('#overlay').removeClass('open');
-		$('#toggle').removeClass('active');
-		$('body').removeClass('stop');
-	});
+  /* чтобы в формах был индивидуальный заголовок */
+  $("a[href='#call-back']").click(function () {
+    const dataForm = $(this).data('form');
+    const dataYandex = $(this).data('yandex');
+    $('form.forms-call').attr('onsubmit', dataYandex);
+    $('.form-callback [name=admin-data]').val(dataForm);
+  });
 
+  const validateForms = function (selector, rules, messages) {
+    new window.JustValidate(selector, {
+      rules,
+      messages,
+      submitHandler(form) {
+        const formData = new FormData(form);
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              const MassPopup = "<div class='success'><p>Спасибо за заявку</p></div>";
+              // $('.contact-form').append(MassPopup);
+              $('#contact-form__send').html(MassPopup);
+              console.log('Отправлено');
+            }
+          }
+        };
+        xhr.open('POST', 'mail.php', true);
+        xhr.send(formData);
+        form.reset();
+        setTimeout(() => {
+          $('#contact-form__send').html();
+          $.magnificPopup.close();
+        }, 1000);
+      },
+    });
+  };
 
+  validateForms(
+    '.forms-call',
+    {
+      famely: {
+        required: true,
+        minLength: 5,
+        maxLength: 38,
+      },
+      tel: {
+        required: true,
+      },
+      checkbox: {
+        required: true,
+      },
+    },
+    {
+      famely: {
+        required: 'Поле обязально к заполнению!',
+        minLength: 'Введите не менее 5 символов',
+        maxLength: 'Введите не более 38 символов',
+      },
+      tel: {
+        required: 'Поле обязательно к заполнению',
+      },
+      theme: {
+        required: 'Поле обязательно к заполнению',
+        minLength: 'Введите не менее 10 символов',
+        maxLength: 'Введите не более 100 символов',
+      },
+      mesage: {
+        required: 'Поле обязательно к заполнению',
+        minLength: 'Введите не менее 15 символов',
+        maxLength: 'Введите не более 380 символов',
+      },
+      checkbox: {
+        required: 'Поле обязателено к заполнению',
+      },
+    },
+  );
 
+  $('body').append('<div class="button-top active"><i class="fa fa-angle-double-up" aria-hidden="true"></i></div>');
+  // console.log('kjkjkj');
+  // Заставляет прятаться кнопку, если посетитель на хедере
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > $(this).height()) {
+      $('.button-top').addClass('active');
+    } else {
+      $('.button-top').removeClass('active');
+    }
+  });
+  $('body').on('click', '.button-top', () => {
+    $('html, body').animate({ scrollTop: 0 }, 1000);
+  });
+  // навигация
+  $('.top-menu ul li a, .block-letme-batton a, .calling-me ul li a').mPageScroll2id({
+    layout: 'auto',
+    offset: '.top-line-box',
+    scrollEasing: 'linear',
+    highlightByNextTarget: true,
+    keepHighlightUntilNext: true,
+    autoScrollSpeed: true,
+    scrollSpeed: 1000,
+    highlightSelector: '.top-menu ul li a',
+  });
+  // конец навигации
 
+  // начало формы
 
+  // всплывающие окна обратной связи позвонить мне
+  $("a[href='#call-back']").magnificPopup({
+    mainClass: 'my-mfp-zoom-in',
+    tClose: 'Закрыть (Esc)',
+    removalDelay: 400,
+    fixedContentPos: false,
+    fixedBgPos: false,
+    type: 'inline',
+  });
 
+  // Ajax push mesege http://api.jquery.com/jquery.ajax/
 
+  // $('form').submit(function () {
+  //   // Change
+  //   const th = $(this);
+  //   $.ajax({
+  //     type: 'POST',
+  //     url: 'mail.php', // Change
+  //     data: th.serialize(),
+  //   }).done(() => {
+  //     $('.forms-calldecor .success').addClass('active');
+  //     setTimeout(() => {
+  //       // Done Functions
+  //       $('.forms-calldecor .success').removeClass('active');
+  //       th.trigger('reset');
+  //       $.magnificPopup.close();
+  //     }, 3000);
+  //   });
+  //   return false;
+  // });
 
-
-
-
-
-
-//button up
-$("body").append('<div class="button-top"><i class="fa fa-angle-double-up" aria-hidden="true"></i></div>');
-//button up hide
-$("body").on("click", ".button-top", function() {
-	$("html, body").animate({scrollTop: 0}, "slow");
+  // конец формы
 });
-// //button up hide if customer on header
-$(window).scroll(function() {
-if ($(this).scrollTop() > $(this).height()) {
-	$(".button-top").addClass("active");
-} else
-{  	$(".button-top").removeClass("active");
-}
-});
 
-$(".top-menu ul li a, .overlay-menu ul li a, .block-letme-batton a, .calling-me ul li a").mPageScroll2id({
-	 layout:"auto",
-	 offset:".top-line",
-	scrollEasing: "linear",
-	highlightByNextTarget: true,
-	keepHighlightUntilNext: true,
-	 autoScrollSpeed: true,
-	scrollSpeed : 1000,
-	highlightSelector: ".top-menu ul li a"
-});
-
-// form in popup
-$("a[href='#call-back']").magnificPopup ({
-	mainClass:'my-mfp-zoom-in',
-	removalDelay:400,
-	type:'inline',
-		fixedContentPos : false,
-	fixedBgPos      : false,
-		tLoading: 'Загрузка...',
-	tClose: 'Закрыть (Esc)',
-
-});
-/* popup form optionдуальный заголовок */
-$("a[href='#call-back']").click(function(){
-	var dataForm = $(this).data("form");
-	var dataText = $(this).data("text");
-	$(".form-callback h4").text(dataText);
-	$(".form-callback [name=admin-data]").val(dataForm);
-});
-
-//Аякс отправка форм Документация: http://api.jquery.com/jquery.ajax/
-
-$("form").submit(function() { //Change
-		var th = $(this);
-		$.ajax({
-			type: "POST",
-			url: "mail.php", //Change
-			data: th.serialize()
-		}).done(function() {
-			$(".forms-calldecor .success").addClass("active");
-			setTimeout(function() {
-				// Done Functions
-				$(".forms-calldecor .success").removeClass("active");
-				th.trigger("reset");
-				$.magnificPopup.close();
-			}, 1000);
-		});
-		return false;
-	});
-
+document.addEventListener('DOMContentLoaded', () => {
+  function myFunction() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    //  console.info(scrolled);
+    document.getElementById('myBar').style.width = `${scrolled}%`;
+  }
+  window.onscroll = () => {
+    myFunction();
+  };
 });

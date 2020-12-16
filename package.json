@@ -1,11 +1,14 @@
 {
-  "name": "startgulp4lite",
+  "name": "businessschool",
   "version": "1.0.0",
   "description": "Базовый стартовый шаблон для выполнения верстки под заказ",
   "main": "gulpfile.js",
   "scripts": {
-    "lint": "eslint ./app",
-    "lint:fix": "eslint ./app --fix"
+    "eslint": "eslint ./app/libs/common.js",
+    "eslint:fix": "eslint ./app/**/*.js --fix",
+    "stylelint": "stylelint ./app/scss/*.scss",
+    "stylelint:fix": "stylelint ./app/scss/*.scss --fix",
+    "stylelint:cache": "stylelint --cache ./app/**/*.scss"
   },
   "repository": {
     "type": "git",
@@ -18,17 +21,17 @@
   },
   "homepage": "https://github.com/frontend-coder/startgulp4Lite#readme",
   "devDependencies": {
-    "browser-sync": "^2.26.12",
-    "del": "^5.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-html": "^6.0.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-vue": "^6.2.2",
+    "@icon/stroke-7": "^1.2.0",
+    "browser-sync": "^2.26.13",
+    "del": "^6.0.0",
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-html": "^6.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.2.0",
+    "fontawesome-4.7": "^4.7.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-clean-css": "^4.3.0",
@@ -39,11 +42,26 @@
     "gulp-plumber": "^1.2.1",
     "gulp-rename": "^2.0.0",
     "gulp-rigger": "^0.5.8",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
     "gulp-strip-comments": "^2.5.2",
     "gulp-strip-css-comments": "^2.0.0",
     "gulp-uglify-es": "^2.0.0",
-    "prettier": "^2.0.2"
+    "jquery": "^2.2.4",
+    "magnific-popup": "^1.1.0",
+    "page-scroll-to-id": "^1.6.5",
+    "prettier": "^2.2.1",
+    "slick-carousel": "^1.8.1",
+    "stylelint": "^13.8.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-scss": "^3.18.0"
+  },
+  "dependencies": {
+    "browserslist": "^4.15.0",
+    "caniuse-lite": "^1.0.30001165"
   }
 }

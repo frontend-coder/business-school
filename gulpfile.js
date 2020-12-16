@@ -24,10 +24,12 @@ const notify                                  = require('gulp-notify');
 const browserSync                             = require('browser-sync').create();
 
 function styles() {
-	return src([
+	return src(
+		[
 		'app/scss/libs.scss',
 		'app/scss/main.scss'
-	])
+		]
+	)
 		.pipe(plumber({
 		errorHandler: notify.onError(function(err){
  			return {
@@ -64,16 +66,19 @@ function browsersync() {
 
 function scripts() {
 	return src([
-		'app/libs/plagins/jquery.min.js',
-		'app/libs/plagins/page-scroll-to-id-master/js/minified/jquery.malihu.PageScroll2id.min.js',
-		'app/libs/plagins/magnific-popup/jquery.magnific-popup.min.js',
-		'app/libs/plagins/slick/slick.min.js',
-		'app/libs/common.js'
+		'app/libs/plugins/jquery-2.min.js',
+		'app/libs/plugins/jquery.malihu.PageScroll2id.js',
+		'app/libs/plugins/valid.js',
+		'app/libs/plugins/jquery.mask.min.js',
+//'node_modules/page-scroll-to-id/jquery.malihu.PageScroll2id.js',
+	'app/libs/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.js',
+	// 	'node_modules/slick-carousel/slick/slick.min.js',
+	'app/libs/common.js'
 	])
 		.pipe(strip())
 		.pipe(rigger())
 		.pipe(concat('scripts.min.js'))
-		.pipe(uglify())
+//		.pipe(uglify())
 		.pipe(dest('app/js/'))
 		.pipe(browserSync.stream())
 }
