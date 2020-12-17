@@ -29,14 +29,15 @@
     }
 	</style>
 	<link rel="stylesheet" href="css/libs.min.css" />
+	<!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym"); ym(70597414, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/70597414" style="position: absolute; left: -9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 </head>
 
 <body>
-
-	<!-- Custom HTML -->
+	<div class="progress-line">
+		<div class="progress-line__item"></div>
+	</div>
 	<header class="header__img header">
-		<div class="top-line hero">
-			<div id="myBar" class="program-line__item"></div>
+		<div class="top-line">
 			<div class="container">
 				<div class="top-line-box">
 					<div class="logo">
@@ -53,7 +54,8 @@
 						</ul>
 					</div>
 					<div class="top-line-call">
-						<a href="#call-back" data-form="Кнопка в фиксированном топ лайне" data-yandex="yaCounter444444.reachGoal('metkaonheader'); return true;">получить доступ</a>
+						<a href="#call-back" data-title="Получить доступ" data-form="Кнопка в фиксированном топ лайне"
+							data-yandex="yaCounter70597414.reachGoal('toplineformer'); return true;">получить доступ</a>
 					</div>
 
 					<div class="button_container" id="toggle">
@@ -129,7 +131,7 @@
 							<div class="second-block-text">Вы хотите создать свой проект? Готовы вложить хотя бы минимальное время и
 								усилия для его развития? Стремитесь овладеть новыми навыками?</div>
 							<div class="second-block-link">
-								<a href="#call-back" class="form-callback" data-form="форма в блоке с девушкой">начните действовать сейчас!</a></div>
+								<a href="#call-back" data-title="Хватит мечтать" class="form-callback" data-form="форма в блоке Может хватит уже мечтать?" data-yandex="yaCounter70597414.reachGoal('dontwait'); return true;">начните действовать сейчас!</a></div>
 							<div class="second-block-text">Как вы уже, наверное, догадались, речь пойдет о ШКОЛЕ БИЗНЕСА.</div>
 							<div class="second-block-text">Где вы получите не просто новый навык, а инструменты для создания успешного
 								онлайн проекта и откроете для себя новые возможности...</div>
@@ -870,8 +872,6 @@
 
 
 				<div class="row pricer_box_wrapper">
-
-
 					<div class="pricer_box">
 
 						<div class="price-block">
@@ -892,7 +892,7 @@
 									</ul>
 								</div>
 								<div class="price-block-link">
-									<a href="#call-back">заказать курс</a>
+									<a href="#call-back" data-title="Закажите курс" data-form="форма в блоке пакет Стандартный" data-yandex="yaCounter70597414.reachGoal('standartpaket'); return true;">заказать курс</a>
 								</div>
 							</div>
 						</div>
@@ -916,7 +916,7 @@
 									</ul>
 								</div>
 								<div class="price-block-link">
-									<a href="#call-back">заказать курс</a>
+									<a href="#call-back" data-title="Закажите курс" data-form="форма в блоке пакет VIP" data-yandex="yaCounter70597414.reachGoal('vippaket'); return true;">заказать курс</a>
 								</div>
 							</div>
 						</div>
@@ -940,7 +940,7 @@
 									</ul>
 								</div>
 								<div class="price-block-link">
-									<a href="#call-back">заказать курс</a>
+									<a href="#call-back" data-title="Закажите курс" data-form="форма в блоке пакет platinum" data-yandex="yaCounter70597414.reachGoal('platinumpaket'); return true;">заказать курс</a>
 								</div>
 							</div>
 						</div>
@@ -1298,17 +1298,18 @@
 
 	<div class="hidden">
 		<form class="forms-call form-callback forms-calldecor" id="call-back">
-		<input type="hidden" name="admin_email[]" value="frontendercode@gmail.com">
-		<input type="hidden" name="form_subject" value="Запрос на услуги">
+			<input type="hidden" name="admin_email[]" value="frontendercode@gmail.com">
+			<input type="hidden" name="form_subject" value="Запрос на услуги">
 			<input type="hidden" name="admin-data">
 			<input type="hidden" name="formaone" value="форма размещена во всплывающем окне">
 
-			<h4>Получить доступ к урокам</h4>
+			<h4 class="get__title"></h4>
 			<label>
 				<input data-validate-field="famely" type="text" name="name" placeholder="Введите Ваше имя *">
 			</label>
 			<label>
-				<input id="tel" data-validate-field="tel" type="text" name="tell" placeholder="Введите Ваш телефон*" autocomplete="off">
+				<input id="tel" data-validate-field="tel" type="text" name="tell" placeholder="Введите Ваш телефон*"
+					autocomplete="off">
 			</label>
 			<div id="contact-form__send" class="contact-form__send"></div>
 			<div class="button-call">
@@ -1322,9 +1323,9 @@
 			</div>
 		</form>
 
-</div>
+	</div>
 
-		<script src="js/scripts.min.js"></script>
+	<script src="js/scripts.min.js"></script>
 
 </body>
 

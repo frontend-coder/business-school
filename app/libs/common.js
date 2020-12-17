@@ -14,11 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
   $("a[href='#call-back']").click(function () {
     const dataForm = $(this).data('form');
     const dataYandex = $(this).data('yandex');
+    const dataTitle = $(this).data('title');
+    console.log(dataTitle);
     $('form.forms-call').attr('onsubmit', dataYandex);
     $('.form-callback [name=admin-data]').val(dataForm);
+    $('.get__title').text(dataTitle);
   });
 
   const validateForms = function (selector, rules, messages) {
+    // eslint-disable-next-line no-new
     new window.JustValidate(selector, {
       rules,
       messages,
@@ -83,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
       checkbox: {
         required: 'Поле обязателено к заполнению',
       },
-    },
+    }
   );
 
   $('body').append('<div class="button-top active"><i class="fa fa-angle-double-up" aria-hidden="true"></i></div>');
@@ -123,40 +127,33 @@ document.addEventListener('DOMContentLoaded', () => {
     fixedBgPos: false,
     type: 'inline',
   });
-
-  // Ajax push mesege http://api.jquery.com/jquery.ajax/
-
-  // $('form').submit(function () {
-  //   // Change
-  //   const th = $(this);
-  //   $.ajax({
-  //     type: 'POST',
-  //     url: 'mail.php', // Change
-  //     data: th.serialize(),
-  //   }).done(() => {
-  //     $('.forms-calldecor .success').addClass('active');
-  //     setTimeout(() => {
-  //       // Done Functions
-  //       $('.forms-calldecor .success').removeClass('active');
-  //       th.trigger('reset');
-  //       $.magnificPopup.close();
-  //     }, 3000);
-  //   });
-  //   return false;
-  // });
-
-  // конец формы
 });
 
+// document.addEventListener('DOMContentLoaded', () => {
+//   function myFunction() {
+//     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+//     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+//     const scrolled = (winScroll / height) * 100;
+//     //  console.info(scrolled);
+//     document.getElementById('myBar').style.width = `${scrolled}%`;
+//   }
+//   window.onscroll = () => {
+//     myFunction();
+//   };
+// });
+
 document.addEventListener('DOMContentLoaded', () => {
-  function myFunction() {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    //  console.info(scrolled);
-    document.getElementById('myBar').style.width = `${scrolled}%`;
-  }
-  window.onscroll = () => {
-    myFunction();
+  const line = document.querySelector('.progress-line__item');
+
+  const progressAnimation = () => {
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const siteHeight = document.documentElement.scrollHeight;
+    const percentageProgress = Math.floor((scrollTop / (siteHeight - windowHeight)) * 100);
+    line.style.width = `${percentageProgress}%`;
   };
+
+  window.addEventListener('scroll', () => {
+    progressAnimation();
+  });
 });

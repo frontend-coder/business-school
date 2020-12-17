@@ -1,10 +1,30 @@
 [
 	{
-		"path": "$ROOTPATH$\\app\\scss\\_allstyle.scss",
+		"path": "$ROOTPATH$\\app\\index.html",
 		"bookmarks": [
 			{
-				"line": 361,
-				"column": 1,
+				"line": 54,
+				"column": 0,
+				"label": ""
+			},
+			{
+				"line": 131,
+				"column": 0,
+				"label": ""
+			},
+			{
+				"line": 893,
+				"column": 0,
+				"label": ""
+			},
+			{
+				"line": 917,
+				"column": 0,
+				"label": ""
+			},
+			{
+				"line": 941,
+				"column": 0,
 				"label": ""
 			}
 		]
