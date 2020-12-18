@@ -15,8 +15,84 @@
   /* делать это разрешение */
 }
 
+@media screen and (max-width: 1190px) {
+  /* делать это разрешение */
+  .top-menu ul li a {
+    padding: 10px 8px;
+  }
+}
+
 @media screen and (max-width: 1080px) {
   /* делать это разрешение */
+  .top-menu ul li a {
+    padding: 10px 8px;
+  }
+
+  .second-block-title {
+    font-size: 33px;
+  }
+
+  .second-block-link a {
+    font-size: 27px;
+  }
+
+  .mansdreams-text {
+    right: -12px;
+    top: 52px;
+    font-size: 33px;
+  }
+
+  .block-answear {
+    font-size: 22px;
+  }
+
+  .promise-block-discription {
+    font-size: 33px;
+  }
+
+  .encounter-block-text span {
+    font-size: 18px;
+  }
+
+  .block-qman-contant-text-b {
+    font-size: 25px;
+  }
+
+  .block-discription {
+    font-size: 20px;
+  }
+
+  .group-fon-school {
+    font-size: 52px;
+  }
+
+  .utp-block {
+    font-size: 40px;
+  }
+
+  .letme-title-text {
+    font-size: 20px;
+  }
+
+  .four-reasons-descr {
+    font-size: 14px;
+  }
+
+  .aftor-text-descr {
+    font-size: 21px;
+  }
+
+  .create-website-title {
+    font-size: 26px;
+  }
+
+  .create-website-result-ul ul {
+    width: 82%;
+  }
+
+  .garanty-block-orange {
+    font-size: 16px;
+  }
 }
 
 /* первое разрешение под казачика */

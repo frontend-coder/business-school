@@ -48,13 +48,25 @@ a {
 }
 
 .top-line {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   z-index: 1;
   width: 100%;
+  min-width: 100%;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.85);
+  transition: all 1s ease-in-out;
+}
+
+.top-line.active {
+  top: -100%;
+  transition: all 2s ease-in-out;
+}
+
+.top-line.active.visible {
+  top: 0;
+  transition: all 2s ease-in-out;
 }
 
 .top-line-box {
@@ -103,6 +115,7 @@ a {
 }
 
 .top-menu {
+  margin-left: auto;
   text-align: right;
 }
 

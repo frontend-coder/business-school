@@ -5,10 +5,6 @@
 }
 
 // эти свойства по default
-*::input-placeholder {
-  color: #202020;
-  opacity: 1;
-}
 
 *::placeholder {
   color: $placeholdercolortext;

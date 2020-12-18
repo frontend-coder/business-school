@@ -6,16 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     clearIfNotMatch: !0,
   });
 
-  // <a href="#call-back" data-form="с кнопки в фиксированном топ лайне" data-text="Получить доступ к урокам">
-  //   получить доступ data-yandex
-  // </a>;
-
   /* чтобы в формах был индивидуальный заголовок */
   $("a[href='#call-back']").click(function () {
     const dataForm = $(this).data('form');
     const dataYandex = $(this).data('yandex');
     const dataTitle = $(this).data('title');
-    console.log(dataTitle);
     $('form.forms-call').attr('onsubmit', dataYandex);
     $('.form-callback [name=admin-data]').val(dataForm);
     $('.get__title').text(dataTitle);
@@ -35,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
               const MassPopup = "<div class='success'><p>Спасибо за заявку</p></div>";
               // $('.contact-form').append(MassPopup);
               $('#contact-form__send').html(MassPopup);
-              console.log('Отправлено');
             }
           }
         };
@@ -87,14 +81,21 @@ document.addEventListener('DOMContentLoaded', () => {
       checkbox: {
         required: 'Поле обязателено к заполнению',
       },
-    }
+    },
   );
 
   $('body').append('<div class="button-top active"><i class="fa fa-angle-double-up" aria-hidden="true"></i></div>');
   // console.log('kjkjkj');
   // Заставляет прятаться кнопку, если посетитель на хедере
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > $(this).height()) {
+  $(window).scroll(() => {
+    // if ($(window).scrollTop() > 300) {
+    //   $('.top-line').addClass('active');
+    // } else {
+    //   $('.top-line').removeClass('active');
+    // }
+
+    // begin code
+    if ($(window).scrollTop() > $(window).height()) {
       $('.button-top').addClass('active');
     } else {
       $('.button-top').removeClass('active');
@@ -103,6 +104,25 @@ document.addEventListener('DOMContentLoaded', () => {
   $('body').on('click', '.button-top', () => {
     $('html, body').animate({ scrollTop: 0 }, 1000);
   });
+
+  function scrollMenu() {
+    const objToStick = $('.top-line'); // Получаем нужный объект
+    if ($(window).scrollTop() > 150) {
+      $(objToStick).addClass('active');
+    } else {
+      $(objToStick).removeClass('active');
+    }
+
+    if ($(window).scrollTop() > 700) {
+      $(objToStick).addClass('visible');
+    } else {
+      $(objToStick).removeClass('visible');
+    }
+  }
+  window.addEventListener('scroll', () => {
+    scrollMenu();
+  });
+
   // навигация
   $('.top-menu ul li a, .block-letme-batton a, .calling-me ul li a').mPageScroll2id({
     layout: 'auto',
@@ -128,19 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
     type: 'inline',
   });
 });
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   function myFunction() {
-//     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-//     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-//     const scrolled = (winScroll / height) * 100;
-//     //  console.info(scrolled);
-//     document.getElementById('myBar').style.width = `${scrolled}%`;
-//   }
-//   window.onscroll = () => {
-//     myFunction();
-//   };
-// });
 
 document.addEventListener('DOMContentLoaded', () => {
   const line = document.querySelector('.progress-line__item');
