@@ -28,5 +28,15 @@
 				"label": ""
 			}
 		]
+	},
+	{
+		"path": "$ROOTPATH$\\app\\scss\\_media.scss",
+		"bookmarks": [
+			{
+				"line": 914,
+				"column": 0,
+				"label": ""
+			}
+		]
 	}
 ]

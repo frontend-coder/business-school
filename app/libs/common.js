@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+  $('#toggle').on('click', () => {
+    $('.top-menu').toggleClass('active');
+    $('.menu-top').toggleClass('menu-top-click');
+    $('.menu-middle').toggleClass('menu-middle-click');
+    $('.menu-bottom').toggleClass('menu-bottom-click');
+  });
   // common js
   $('#tel').mask('+7(000)000-00-00', {
     selectOnFocus: true,
