@@ -34,8 +34,6 @@
   top: 12px;
   backface-visibility: hidden;
   transform: rotate(45deg);
-
-  //transition: 0.55s 0.5s;
 }
 
 .menu-middle-click {
@@ -46,9 +44,9 @@
   top: 12px;
   backface-visibility: hidden;
   transform: rotate(-405deg);
+}
 
-  // transition: 0.55s 0.5s;
-}/* ==========  Desktop First  ========== */
+/* ==========  Desktop First  ========== */
 
 @media only screen and (max-width: 1440px) {
   /* делать это разрешение */
@@ -70,6 +68,36 @@
   /* делать это разрешение */
   .top-menu ul li a {
     padding: 10px 8px;
+  }
+
+  .promise-block-discription {
+    font-size: 34px;
+  }
+
+  .second-block-title {
+    font-size: 35px;
+  }
+
+  .second-block-link a {
+    font-size: 27px;
+  }
+
+  .block-answear {
+    font-size: 22px;
+  }
+
+  .letme-title-text {
+    font-size: 21px;
+  }
+
+  .block-qman-contant-text-b {
+    font-size: 26px;
+  }
+
+  .mansdreams-text {
+    right: -13px;
+    top: 52px;
+    font-size: 34px;
   }
 }
 
@@ -237,11 +265,6 @@
   .second-block-right {
     padding-top: 14px;
   }
-
-  // .second-block-fon {
-  //   height: 800px;
-  //   background-position: center top;
-  // }
 
   .mansdreams {
     width: 75%;
@@ -756,7 +779,7 @@
   }
 
   .advise-block-fon-block {
-    margin: 20px 30px;
+    margin: 20px;
   }
 
   .block-discription-bottom {
@@ -792,10 +815,6 @@
 
   .price-title-big {
     font-size: 26px;
-  }
-
-  .advise-block-fon-block {
-    margin: 20px;
   }
 
   .advise-block-fon-block::before {
@@ -976,31 +995,4 @@
 
 @media only screen and (max-width: 320px) {
   /* делать это разрешение */
-}
-
-
-
-/* ==========  Mobile First  ========== */
-
-
-
-
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-
-}
-
-/* Medium devices (tablets, 768px and up)  */
-@media (min-width: 768px) {
-
-}
-
-/* Large devices (desktops, 992px and up)  */
-@media (min-width: 992px) {
-
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-
 }

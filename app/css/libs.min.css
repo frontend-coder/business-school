@@ -1095,10 +1095,11 @@ ul.link-center{margin:0 auto;width:50%}
 .footer-links .css-label::before{content:"";position:absolute;left:0;top:4px;border:1px solid #000;width:15px;height:15px}
 .footer-links input[type=checkbox]:checked+.css-label::before{background-color:#efa448}
 .forms-calldecor{position:relative;overflow:hidden;margin:auto;border:1px solid #fff;border-radius:10px;max-width:480px;background-color:rgba(255,255,255,.99);transition:.5s}
-.forms-calldecor label{display:block;margin:10px 0}
+.forms-calldecor label{position:relative;display:block;margin:10px 0}
+.js-validate-error-label{position:absolute;left:5%;top:105%;font-size:12px}
 .forms-calldecor img{width:100%;height:auto}
 .forms-calldecor h4{margin:30px 0 25px;font-size:30px;text-align:center;color:#000}
-.forms-calldecor input{display:block;margin:10px auto;border:1px solid #000;border-radius:3px;width:90%;height:40px;font-size:.938em;line-height:40px;text-indent:10px;color:#333}
+.forms-calldecor input{display:block;margin:0 auto 20px;border:1px solid #000;border-radius:3px;width:90%;height:40px;font-size:.938em;line-height:40px;text-indent:10px;color:#333}
 .forms-calldecor input:focus{border:1px solid #efa448}
 .forms-calldecor .get-buttons{margin:10px 0;border:0;padding:4px 50px;font-size:18px;line-height:40px;letter-spacing:1px;text-decoration:none;background-color:#efa448;transition:.5s}
 .forms-calldecor .get-buttons:active,.forms-calldecor .get-buttons:focus,.forms-calldecor .get-buttons:hover{background-color:#eb8d19}
@@ -1126,6 +1127,13 @@ ul.link-center{margin:0 auto;width:50%}
 .menu-bottom-click{top:12px;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:rotate(-405deg)}
 @media screen and (max-width:1190px){
 .top-menu ul li a{padding:10px 8px}
+.promise-block-discription{font-size:34px}
+.second-block-title{font-size:35px}
+.second-block-link a{font-size:27px}
+.block-answear{font-size:22px}
+.letme-title-text{font-size:21px}
+.block-qman-contant-text-b{font-size:26px}
+.mansdreams-text{right:-13px;top:52px;font-size:34px}
 }
 @media screen and (max-width:1080px){
 .top-menu ul li a{padding:10px 8px}
@@ -1295,6 +1303,7 @@ ul.link-center{width:100%}
 .block-qman-contant{font-size:18px}
 .block-qman-contant-text-b{font-size:21px}
 .advise-block-text-utp{margin:20px 0}
+.advise-block-fon-block{margin:20px}
 .block-discription-bottom{font-size:24px}
 .utp-block{font-size:18px}
 .utp-block-b{font-size:27px}
@@ -1303,7 +1312,6 @@ ul.link-center{width:100%}
 .four-reasons-descr{font-size:17px}
 .mansdreams{width:85%}
 .price-title-big{font-size:26px}
-.advise-block-fon-block{margin:20px}
 .advise-block-fon-block::before{left:-23px;bottom:-35px}
 .advise-block-fon-block::after{right:-23px;bottom:-35px}
 }
